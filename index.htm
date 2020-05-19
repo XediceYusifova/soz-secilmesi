@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+        #Textarea{
+            resize: none;
+            
+        }
+        #span{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="Textarea" cols="50" rows="10" onkeyup="Scan(this)"></textarea>
+    <span id="span"></span>
+   
+    <script>
+         
+        let sum = "", sonsoz = "";
+        let ind = 0;
+        let x = "";
+
+        function Scan(textarea){
+            let text = document.getElementById("Textarea").value;
+            let span = document.getElementById("span");            
+            for (let i = ind; i<text.length; i++){
+                if(text[i]!=" "&&text[i]!="."&&text[i]!="?"&&text[i]!="!"){
+                    sum+=text[i];
+                    ind++;
+                }
+                else{
+                    ind++;
+                    sonsoz=sum;
+                    sum="";
+                    break;
+                }
+            } 
+                if(sonsoz[0]=="A"||sonsoz[0]=="a"){
+                    x+=sonsoz;
+                    x+="</br>";
+                    span.innerHTML=x;
+                    sonsoz="";
+                }
+        }
+        
+    </script>
+</body>
+</html>
